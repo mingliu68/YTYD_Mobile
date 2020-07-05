@@ -50,7 +50,7 @@ export default function App() {
                             title="Finance"
                             avatar={require("./assets/avatar.jpg")}
                             caption="Let's talk about money"
-                            name="Financial Consultant"
+                            name="Your Financial Advisor"
                         />
                     </ScrollView>
                 </ScrollView>
