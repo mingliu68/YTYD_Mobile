@@ -8,10 +8,12 @@ import { sample_data } from "./sample_data";
 import { NotificationIcon } from "./components/Icons";
 import Tab from "./components/Tab";
 import Resource from "./components/Resource";
+import Menu from "./components/Menu";
 
 export default function App() {
     return (
         <Container>
+            <Menu />
             <SafeAreaView>
                 <ScrollView>
                     <TitleBar>
