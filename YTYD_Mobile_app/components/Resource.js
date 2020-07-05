@@ -1,5 +1,8 @@
 import React from "react";
+import { Dimensions } from "react-native";
 import styled from "styled-components";
+
+const screenWidth = Dimensions.get("window").width;
 
 const Resource = (props) => (
     <Container>
@@ -20,7 +23,7 @@ const Resource = (props) => (
 export default Resource;
 
 const Container = styled.View`
-    width: 335px;
+    width: ${screenWidth * .9}px;
     height: 335px;
     border-radius: 14px;
     background: white;

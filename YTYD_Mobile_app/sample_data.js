@@ -11,11 +11,40 @@ export const sample_data = {
         },
     ],
     user: {
-        name: "Ming",
-        lastName: "Liu",
-        avatar: require("./assets/avatar.jpg"),
+        name: "Mary",
+        lastName: "McLaughlin",
+        avatar: require("./assets/female-avatar-png-5.png"),
         role: "Job Seeker",
     },
+    resourceCards: [
+        {
+            img: require("./assets/background_1.jpg"),
+            logo: require("./assets/action_logo.jpg"),
+            subtitle: "Useful resources for personal finance",
+            title: "Finance",
+            avatar: require("./assets/avatar.jpg"),
+            caption: "Let's talk about money",
+            name: "Your Financial Advisor",
+        }, 
+        {
+            img: require("./assets/background_1.jpg"),
+            logo: require("./assets/action_logo.jpg"),
+            subtitle: "Useful resources for personal finance",
+            title: "Finance",
+            avatar: require("./assets/avatar.jpg"),
+            caption: "Let's talk about money",
+            name: "Your Financial Advisor",
+        }, 
+        {
+            img: require("./assets/background_1.jpg"),
+            logo: require("./assets/action_logo.jpg"),
+            subtitle: "Useful resources for personal finance",
+            title: "Finance",
+            avatar: require("./assets/avatar.jpg"),
+            caption: "Let's talk about money",
+            name: "Your Financial Advisor",
+        }, 
+    ], 
     menuItems: [
         {
             icon: "ios-settings",

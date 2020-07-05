@@ -1,9 +1,10 @@
 import React from "react";
 import styled from "styled-components";
-import { Animated, TouchableOpacity, Dimensions } from "react-native";
+import { Animated, TouchableOpacity, Dimensions,  } from "react-native";
 import { Ionicons } from "@expo/vector-icons";
 import { sample_data } from "../sample_data";
 import MenuItem from "./MenuItem";
+import { connect } from "react-redux";
 
 const screenHeight = Dimensions.get("window").height;
 
@@ -13,16 +14,27 @@ class Menu extends React.Component {
     };
 
     componentDidMount() {
-        Animated.spring(this.state.top, {
-            // animation properties for user profile / menu
-            toValue: 0,
-        }).start();
+        this.toggleMenu();
+    }
+
+    componentDidUpdate() {
+        this.toggleMenu();
     }
 
     toggleMenu = () => {
-        Animated.spring(this.state.top, {
-            toValue: screenHeight,
-        }).start();
+        if (this.props.action == "openMenu") {
+            Animated.spring(this.state.top, {
+                // animation properties for user profile / menu
+                toValue: 54,
+                useNativeDriver: false,
+            }).start();
+        }
+        if (this.props.action == "closeMenu") {
+            Animated.spring(this.state.top, {
+                toValue: screenHeight,
+                useNativeDriver: false,
+            }).start();
+        }
     };
 
     render() {
@@ -34,7 +46,7 @@ class Menu extends React.Component {
                     <Subtitle>{sample_data.user["role"]}</Subtitle>
                 </Cover>
                 <TouchableOpacity
-                    onPress={this.toggleMenu}
+                    onPress={this.props.closeMenu}
                     style={{
                         position: "absolute",
                         left: "50%",
@@ -49,16 +61,9 @@ class Menu extends React.Component {
                     </CloseView>
                 </TouchableOpacity>
                 <Content>
-                    {
-                        sample_data.menuItems.map((item, i) => (
-                            <MenuItem 
-                                key={i}
-                                icon={item.icon}
-                                title={item.title}
-                                text={item.text}
-                            />
-                        ))
-                    }
+                    {sample_data.menuItems.map((item, i) => (
+                        <MenuItem key={i} icon={item.icon} title={item.title} text={item.text} />
+                    ))}
                     <MenuItem />
                 </Content>
             </AnimatedContainer>
@@ -66,7 +71,22 @@ class Menu extends React.Component {
     }
 }
 
-export default Menu;
+function mapStateToProps(state) {
+    return { action: state.action };
+}
+
+function mapDispatchToProps(dispatch) {
+    return {
+        closeMenu: () =>
+            dispatch({
+                type: "CLOSE_MENU",
+            }),
+    };
+}
+
+// export default Menu;
+
+export default connect(mapStateToProps, mapDispatchToProps)(Menu);
 
 const Container = styled.View`
     position: absolute;
@@ -74,6 +94,8 @@ const Container = styled.View`
     height: 100%;
     width: 100%;
     z-index: 100;
+    border-radius: 10px;
+    overflow: hidden;
 `;
 
 const AnimatedContainer = Animated.createAnimatedComponent(Container);
@@ -87,7 +109,7 @@ const Cover = styled.View`
 
 const Content = styled.View`
     background: #f0f3f5;
-    height: ${screenHeight};
+    height: ${screenHeight}px;
     padding: 50px;
 `;
 
@@ -105,18 +127,16 @@ const Image = styled.Image`
     position: absolute;
     width: 100%;
     height: 100%;
-
 `;
 
 const Title = styled.Text`
-    font-size:24px;
+    font-size: 24px;
     color: white;
     font-weight: 600;
-
 `;
 
 const Subtitle = styled.Text`
-    font-size:13px;
-    color: rgba(255, 255, 255, 0.50);
+    font-size: 13px;
+    color: rgba(255, 255, 255, 0.5);
     margin-top: 8px;
 `;
