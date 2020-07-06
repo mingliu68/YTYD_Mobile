@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import { Animated, TouchableOpacity, Dimensions,  } from "react-native";
+import { Animated, Easing, TouchableOpacity, Dimensions } from "react-native";
 import { Ionicons } from "@expo/vector-icons";
 import { sample_data } from "../sample_data";
 import MenuItem from "./MenuItem";
@@ -23,15 +23,19 @@ class Menu extends React.Component {
 
     toggleMenu = () => {
         if (this.props.action == "openMenu") {
-            Animated.spring(this.state.top, {
+            Animated.timing(this.state.top, {
                 // animation properties for user profile / menu
                 toValue: 54,
+                duration: 300,
+                easing: Easing.in(),
                 useNativeDriver: false,
             }).start();
         }
         if (this.props.action == "closeMenu") {
             Animated.spring(this.state.top, {
                 toValue: screenHeight,
+                duration: 300,
+                easing: Easing.in(),
                 useNativeDriver: false,
             }).start();
         }

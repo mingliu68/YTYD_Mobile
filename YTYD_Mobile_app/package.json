@@ -16,6 +16,7 @@
         "react-native": "https://github.com/expo/react-native/archive/sdk-38.0.1.tar.gz",
         "react-native-svg": "^12.1.0",
         "react-native-web": "~0.11.7",
+        "react-native-webview": "9.4.0",
         "react-redux": "^7.2.0",
         "redux": "^4.0.5",
         "styled-components": "^5.1.1"

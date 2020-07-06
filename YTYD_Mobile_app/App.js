@@ -2,6 +2,7 @@ import React from "react";
 import { createStore } from "redux";
 import { Provider } from "react-redux";
 import HomeScreen from "./screens/HomeScreen";
+import WebScreen from "./screens/WebScreen";
 
 const initialState = {
     action: "",
@@ -21,7 +22,9 @@ const reducer = (state = initialState, action) => {
 const store = createStore(reducer);
 
 const app = () => (
+    
     <Provider store={store}>
+        <WebScreen />
         <HomeScreen />
     </Provider>
 )
