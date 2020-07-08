@@ -77,8 +77,8 @@ export const sample_data = {
             text: "My Locations",
         },
         {
-            img: require("./assets/logo_team.png"),
-            text: "My Team",
+            img: require("./assets/logo_form.png"),
+            text: "My Forms",
         },
         {
             img: require("./assets/logo_location.png"),

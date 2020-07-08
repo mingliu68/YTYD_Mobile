@@ -24,7 +24,7 @@ const store = createStore(reducer);
 const app = () => (
     
     <Provider store={store}>
-        <WebScreen />
+        {/* <WebScreen /> */}
         <HomeScreen />
     </Provider>
 )

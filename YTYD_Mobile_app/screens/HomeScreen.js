@@ -90,7 +90,7 @@ class HomeScreen extends React.Component {
                                     <Card key={"card_" + i} title={card.title} caption={card.caption} subtitle={card.subtitle} local_img={card.local_img} img={card.img} />
                                 ))}
                             </ScrollView>
-                            <Subtitles>Resources</Subtitles>
+                            <Subtitles>Your Dream Your Team Resources</Subtitles>
                             <ScrollView showsVerticalScrollIndicator={false}>
                                 {sample_data.resourceCards.map((card, i) => (
                                     <Resource key={i} img={card.img} logo={card.logo} subtitle={card.subtitle} title={card.title} avatar={card.avatar} caption={card.caption} name={card.name} />
@@ -114,6 +114,7 @@ function mapDispatchToProps(dispatch) {
             dispatch({
                 type: "OPEN_MENU",
             }),
+        
     };
 }
 
