@@ -1,15 +1,16 @@
-// import { StatusBar } from "expo-status-bar";
+import { StatusBar } from "expo-status-bar";
 import React from "react";
-import { ScrollView, Text, SafeAreaView, TouchableOpacity, Animated, Easing } from "react-native";
+import { View, ScrollView, Text, SafeAreaView, TouchableOpacity, Animated, Easing, Platform } from "react-native";
 import styled from "styled-components";
 import Card from "../components/Card";
-import { sample_data } from "../sample_data";
+import { sample_data } from "../data/sample_data";
 // import { Ionicons } from "@expo/vector-icons";
 import { NotificationIcon } from "../components/Icons";
 import Tab from "../components/Tab";
 import Resource from "../components/Resource";
 import Menu from "../components/Menu";
 import { connect } from "react-redux";
+import UseCamera from '../components/UseCamera';
 
 class HomeScreen extends React.Component {
     state = {
@@ -51,6 +52,8 @@ class HomeScreen extends React.Component {
     render() {
         return (
             <RootView>
+                <StatusBar style="dark" />
+                <UseCamera />
                 <Menu />
                 <AnimatedContainer
                     style={{

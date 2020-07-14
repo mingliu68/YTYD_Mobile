@@ -19,6 +19,9 @@
         },
         "web": {
             "favicon": "./assets/favicon.png"
+        },
+        "resolutions": { 
+            "logkitty": "^0.7.1" 
         }
     }
 }
